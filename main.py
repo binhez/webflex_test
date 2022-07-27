@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request, send_file
-from utils.sqlutil import SqlConn, SqlData
 import pymssql
 import pandas as pd
 import datetime
