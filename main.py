@@ -4,10 +4,10 @@ import pyodbc
 import pandas as pd
 import datetime
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+# @app.route('/', methods=['GET'])
 def web_flex_tracking():
     # Use a breakpoint in the code line below to debug your script.
     # name = request.args.get('name')
@@ -34,7 +34,7 @@ def web_flex_tracking():
     #     data = query_result[0].fetchall()
     #     print(data)
 
-    cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=10.200.10.4;DATABASE=hb_GVI_PVS;UID=sa;PWD=Energizer1234!')
+    cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=10.200.10.4;DATABASE=hb_GVI_PVS;UID=sa;PWD=Energizer1234!')
     cursor = cnxn.cursor()
     cursor.execute("set nocount on; EXEC WebflexTrackingUser @user = 'GVIAdmin'")
     # cursor.execute("SELECT TOP 50 * FROM Product")
@@ -50,4 +50,7 @@ def web_flex_tracking():
                                     'DateModified'])
 
     result = jsonify(df.to_json(orient='columns'))
+    # print(df)
     return result
+
+# web_flex_tracking()
