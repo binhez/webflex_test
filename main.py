@@ -51,6 +51,7 @@ def web_flex_tracking():
 
     result = jsonify(df.to_json(orient='columns'))
     # print(df)
+    # print(pyodbc.drivers())
     return result
 
 # web_flex_tracking()
