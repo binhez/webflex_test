@@ -4,10 +4,10 @@ import pyodbc
 import pandas as pd
 import datetime
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
 
-# @app.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def web_flex_tracking():
     # Use a breakpoint in the code line below to debug your script.
     # name = request.args.get('name')
