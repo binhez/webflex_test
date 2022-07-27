@@ -12,6 +12,7 @@ def web_flex_tracking():
     # Use a breakpoint in the code line below to debug your script.
     name = request.args.get('name')
 
+
     # server = "10.200.10.4"
     # database = "hb_GVI_PVS"
     # username = "sa"
