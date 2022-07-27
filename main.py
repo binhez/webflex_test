@@ -7,7 +7,7 @@ import datetime
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def web_flex_tracking():
     # Use a breakpoint in the code line below to debug your script.
     # name = request.args.get('name')
@@ -34,7 +34,6 @@ def web_flex_tracking():
     #     data = query_result[0].fetchall()
     #     print(data)
 
-
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=10.200.10.4;DATABASE=hb_GVI_PVS;UID=sa;PWD=Energizer1234!')
     cursor = cnxn.cursor()
     cursor.execute("set nocount on; EXEC WebflexTrackingUser @user = 'GVIAdmin'")
@@ -43,7 +42,6 @@ def web_flex_tracking():
     for row in cursor.fetchall():
         values.append(list(row))
 
-    print(values)
     df = pd.DataFrame(values, index=None, columns=['Id', 'MasterItemNumber', 'ProductType',
                                     'SpinMeExportedDay', 'CaseSellable', 'DateVerified',
                                     'RemoteLocationId', 'SpinmePriority', 'AssignedDate',
@@ -51,10 +49,5 @@ def web_flex_tracking():
                                     'BrandName', 'ProductStatus', 'DateCreated', 'UserName',
                                     'DateModified'])
 
-    return df.to_json(orient='columns')
-
-
-# Press the green button in the gutter to run the script.
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    result = jsonify(df.to_json(orient='columns'))
+    return result
