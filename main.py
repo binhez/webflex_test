@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, send_file
 from utils.sqlutil import SqlConn, SqlData
-import pyodbc
+import pymssql
 import pandas as pd
 import datetime
 
@@ -34,8 +34,8 @@ def web_flex_tracking():
     #     data = query_result[0].fetchall()
     #     print(data)
 
-    cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=10.200.10.4;DATABASE=hb_GVI_PVS;UID=sa;PWD=Energizer1234!')
-    cursor = cnxn.cursor()
+    conn = pymssql.connect(server='10.200.10.4', user='sa', password='Energizer1234!', database='hb_GVI_PVS')
+    cursor = conn.cursor()
     cursor.execute("set nocount on; EXEC WebflexTrackingUser @user = 'GVIAdmin'")
     # cursor.execute("SELECT TOP 50 * FROM Product")
     values = []
