@@ -8,10 +8,10 @@ def hello():
     # Use a breakpoint in the code line below to debug your script.
     name = request.args.get('name')
     if name is None:
-        text = 'Hello!'
+        text = 'trả tiền cho anh m'
 
     else:
-        text = 'Hello ' + name + '!'
+        text = name + ': 0337991048'
 
     return jsonify({"message": text})
 
