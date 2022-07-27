@@ -8,12 +8,13 @@ def hello():
     # Use a breakpoint in the code line below to debug your script.
     name = request.args.get('name')
     if name is None:
-        text = 'Momo: 0337991048'
+        text = "<h1>Momo: 0337991048</h1>"
 
     else:
         text = name + ': 0337991048'
 
-    return jsonify({"message": text})
+    # return jsonify({"message": text})
+    return text
 
 
 # Press the green button in the gutter to run the script.
