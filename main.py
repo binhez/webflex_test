@@ -7,7 +7,7 @@ import datetime
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def web_flex_tracking():
     # Use a breakpoint in the code line below to debug your script.
     # name = request.args.get('name')
