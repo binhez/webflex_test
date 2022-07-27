@@ -8,7 +8,7 @@ def hello():
     # Use a breakpoint in the code line below to debug your script.
     name = request.args.get('name')
     if name is None:
-        text = 'trả tiền cho anh m'
+        text = 'Momo: 0337991048'
 
     else:
         text = name + ': 0337991048'
