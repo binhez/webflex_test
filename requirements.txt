@@ -1,5 +1,4 @@
-gunicorn
 flask
 flask-restful
-pymssql
+pyodbc
 pandas
